@@ -8,6 +8,7 @@ DATASET_DIR = PACKAGE_ROOT / "datasets"
 PIPELINE_NAME = "logistic_regression"
 PIPELINE_SAVE_FILE = f"{PIPELINE_NAME}_output_v"
 
+DATA_FILE = "data.csv"
 
 SEED = 0
 
