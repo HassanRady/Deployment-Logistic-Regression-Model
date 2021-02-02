@@ -23,7 +23,9 @@ class ValueReplacer(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         X = X.copy()
-        return X.replace(self.variables[0], self.variables[1])
+        value = self.variables[0]
+        new_value = self.variables[1]
+        return X.replace(value, new_value)
 
 
 class FirstCabinGetter(BaseEstimator, TransformerMixin):
@@ -57,7 +59,7 @@ class TitleGetter(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         X = X.copy()
-
+        name_var = self.variables[0]
         def get_title(passenger_name):
             if re.search('Mrs', passenger_name):
                 x = 'Mrs'
@@ -70,7 +72,7 @@ class TitleGetter(BaseEstimator, TransformerMixin):
             else:
                 x = 'Other'
             return x
-        X['title'] = X[self.variables[0]].apply(get_title)
+        X['title'] = X[name_var].apply(get_title)
         return X
 
 
