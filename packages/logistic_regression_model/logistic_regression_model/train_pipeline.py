@@ -14,7 +14,7 @@ def train() -> None:
     data = load_dataset(config.DATA_FILE)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        data[config.FEATURES], data[config.TARGET], test_size=0.2, random_state=config.SEED)
+        data.drop(config.TARGET, axis=1), data[config.TARGET], test_size=0.2, random_state=config.SEED)
 
     pipeline.pipe.fit(X_train, y_train)
     _logger.info(f"Saving Pipeline: {_version}")
