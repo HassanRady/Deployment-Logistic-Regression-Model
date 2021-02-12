@@ -1,0 +1,4 @@
+flask==1.0.2
+
+
+-e "D:\Courses\Ongoing\Deployment of Machine Learning Models\Production Project\packages\logistic_regression_model"
