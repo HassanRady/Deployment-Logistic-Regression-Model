@@ -6,7 +6,7 @@ def test_predict():
     # Given
     test_data = load_dataset(config.DATA_FILE)
     original_data_length = len(test_data)
-    multiple_test_json = test_data.to_json(orient='records')
+    multiple_test_json = test_data   #.to_json(orient='records')
 
     # When
     subject = predict(multiple_test_json)
