@@ -21,12 +21,12 @@ def load_pipeline(filename: str) -> Pipeline:
 
 
 def save_pipeline(pipeline: Pipeline) -> None:
-    save_filename = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
-    save_path = config.TRAINED_MODEL_DIR / save_filename
+    save_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
+    save_path = config.TRAINED_MODEL_DIR / save_file_name
 
-    remove_old_pipelines(files_to_keep=save_filename)
+    remove_old_pipelines(files_to_keep=save_file_name)
     joblib.dump(pipeline, save_path)
-    _logger.info(f"Saved Pipeline {save_filename}")
+    _logger.info(f"saved pipeline: {save_file_name}")
 
 
 def remove_old_pipelines(*, files_to_keep) -> None:

@@ -10,9 +10,11 @@ from logistic_regression_model import __version__ as _version
 
 _logger = logging.getLogger(__name__)
 
+pipeline_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
+pipe = load_pipeline(pipeline_file_name)
+
 def getScore():
     data = load_dataset(config.DATA_FILE)
-    pipe = load_pipeline(config.PIPELINE_SAVE_FILE+_version+".pkl")
 
     # X_train, X_test, y_train, y_test = train_test_split(
     #     data.drop(config.TARGET, axis=1), data[config.TARGET], test_size=0.2, random_state=config.SEED)
@@ -29,7 +31,6 @@ def getScore():
 def predict(data):
     data = pd.DataFrame(data)
 
-    pipe = load_pipeline(config.PIPELINE_SAVE_FILE+_version+".pkl")
     data = validate_without_nulls(data)
     preds = pipe.predict(data)
     results = {"predictions": preds, "version": _version}
