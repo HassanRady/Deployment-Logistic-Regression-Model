@@ -9,7 +9,7 @@ from  logistic_regression_model.processing.validation import validate_without_nu
 from logistic_regression_model import __version__ as _version
 
 _logger = logging.getLogger(__name__)
-print(config.PACKAGE_ROOT)
+# print(config.PACKAGE_ROOT)
 pipeline_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
 pipe = load_pipeline(pipeline_file_name)
 
