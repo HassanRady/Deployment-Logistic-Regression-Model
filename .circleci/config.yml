@@ -13,8 +13,8 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/logistic_regression_model/requirements.txt
-            chmod +x ./scripts/fetch_kaggle_dataset.sh
-            ./scripts/fetch_kaggle_dataset.sh
+            chmod +x ./Scripts/fetch_kaggle_dataset.sh
+            ./Scripts/fetch_kaggle_dataset.sh
             py.test -vv packages/logistic_regression_model/tests
 
 workflows:
