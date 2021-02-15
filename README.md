@@ -1,1 +1,1 @@
-Train and deploy logistic regression model.
+Train and deploy logistic regression model
