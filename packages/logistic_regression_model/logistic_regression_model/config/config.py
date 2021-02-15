@@ -1,10 +1,11 @@
 import numpy as np
 import pathlib 
 import logistic_regression_model
+import os
 
 PACKAGE_ROOT = pathlib.Path(logistic_regression_model.__file__).resolve().parent
-TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
-DATASET_DIR = PACKAGE_ROOT / "datasets"
+TRAINED_MODEL_DIR = os.path.join(PACKAGE_ROOT, "trained_models")
+DATASET_DIR = os.path.join(PACKAGE_ROOT, "datasets")
 PIPELINE_NAME = "logistic_regression"
 PIPELINE_SAVE_FILE = f"{PIPELINE_NAME}_output_v"
 
