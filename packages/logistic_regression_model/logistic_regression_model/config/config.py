@@ -17,14 +17,14 @@ REPLACE_VALUE_WITH = ["?", np.nan]
 CABIN_VAR = "cabin"
 NAME_VAR = "name"
 
-CATEGORICAL_VARS = ['sex', 'cabin', 'embarked', 'title']
+CATEGORICAL_VARS = ['sex', 'cabin', 'embarked']
 NUMERICALS_VARS = ['age', 'fare']
 
 NUMERICALS_TO_FLOAT = ["age", "fare"]
 COLUMNS_TO_DROP = ['name', 'ticket', 'boat', 'body', 'home.dest']
 NUMERICALS_TO_IMPUTE = ['age', 'fare']
 CATEGORICAL_TO_IMPUTE = ['sex', 'cabin', 'embarked', 'title']
-CATEGORICAL_TO_ENCODE = CATEGORICAL_VARS
+CATEGORICAL_TO_ENCODE = CATEGORICAL_TO_IMPUTE
 
 FEATURES = [
     'pclass',
@@ -45,5 +45,5 @@ FEATURES = [
     'title_rare'
 ]
 
-NUMERICAL_NA_NOT_ALLOWED = [var for var in FEATURES if var not in CATEGORICAL_VARS + NUMERICALS_TO_IMPUTE]
-CATEGORICAL_NA_NOT_ALLOWED = [var for var in CATEGORICAL_VARS if var not in CATEGORICAL_TO_IMPUTE]
+NUMERICAL_NA_NOT_ALLOWED = NUMERICALS_VARS
+CATEGORICAL_NA_NOT_ALLOWED = CATEGORICAL_VARS
