@@ -31,6 +31,8 @@ def getScore():
 def predict(data):
     data = pd.DataFrame(data)
 
+    # print(config.TRAINED_MODEL_DIR,'---------------------')
+
     data = validate_without_nulls(data)
     preds = pipe.predict(data)
     results = {"predictions": preds, "version": _version}

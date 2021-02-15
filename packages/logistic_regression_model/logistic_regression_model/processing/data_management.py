@@ -4,6 +4,7 @@ from logistic_regression_model.config import config
 from logistic_regression_model import __version__ as _version
 import logging
 from sklearn.pipeline import Pipeline
+import os
 
 
 _logger = logging.getLogger(__name__)
@@ -15,7 +16,7 @@ def load_dataset(filename: str) -> pd.DataFrame:
 
 
 def load_pipeline(filename: str) -> Pipeline:
-    file_path = config.TRAINED_MODEL_DIR / filename
+    file_path = os.path.join(config.TRAINED_MODEL_DIR, filename)
     pipeline = joblib.load(file_path)
     return pipeline
 
