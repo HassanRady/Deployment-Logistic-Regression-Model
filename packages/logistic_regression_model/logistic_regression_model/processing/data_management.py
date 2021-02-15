@@ -24,7 +24,7 @@ def load_pipeline(filename: str) -> Pipeline:
 def save_pipeline(pipeline: Pipeline) -> None:
     save_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
     save_path = os.path.join(config.TRAINED_MODEL_DIR, save_file_name)
-    print(save_path)
+    print(save_path, 'hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
 
     remove_old_pipelines(files_to_keep=save_file_name)
     joblib.dump(pipeline, save_path)
