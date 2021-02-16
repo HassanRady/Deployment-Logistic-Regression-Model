@@ -51,7 +51,7 @@ jobs:
             chmod +x ./Scripts/fetch_kaggle_dataset.sh ./Scripts/publish_model.sh
             ./Scripts/fetch_kaggle_dataset.sh
             PYTHONPATH=./packages/logistic_regression_model python3 packages/logistic_regression_model/logistic_regression_model/train_pipeline.py
-            ./scripts/publish_model.sh ./packages/logistic_regression_model/
+            ./Scripts/publish_model.sh ./packages/logistic_regression_model/
 
 
           
