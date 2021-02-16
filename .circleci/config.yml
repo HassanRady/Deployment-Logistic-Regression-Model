@@ -30,20 +30,21 @@ jobs:
       - *prepare_venv
       - run:
           name: Install requirements
-          command: |  
+          command: |
             . venv/bin/activate
             pip install -r packages/logistic_regression_model/requirements.txt
       - *fetch_data
       - run:
-        name: Train model
-        command: |
-          . venv/bin/activate
-          PYTHONPATH=./packages/logistic_regression_model python3 packages/logistic_regression_model/logistic_regression_model/train_pipeline.py
+          name: Train model
+          command: |
+            . venv/bin/activate
+            PYTHONPATH=./packages/logistic_regression_model python3 packages/logistic_regression_model/logistic_regression_model/train_pipeline.py
       - run:
-        name: Run tests
-        command: |
-          . venv/bin/activate
-          py.test -vv packages/logistic_regression_model/tests
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            py.test -vv packages/logistic_regression_model/tests
+
 
   test_ml_api:
     <<: *defaults
@@ -53,13 +54,17 @@ jobs:
           keys:
             - py-deps-{{ checksum "packages/ml_api/requirements.txt" }}
       - run:
-          name: Running tests
+          name: Runnning tests
           command: |
             virtualenv venv
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/ml_api/requirements.txt
             py.test -vv packages/ml_api/tests
+      - save_cache:
+          key: py-deps-{{ checksum "packages/ml_api/requirements.txt" }}
+          paths:
+            - "/venv"
             
   train_and_upload_regression_model:
     <<: *defaults
