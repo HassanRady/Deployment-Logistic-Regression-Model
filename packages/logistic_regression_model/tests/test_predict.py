@@ -7,10 +7,10 @@ def test_predict():
     # Given
     test_data = load_dataset(config.DATA_FILE)
     original_data_length = len(test_data)
-    multiple_test_json = test_data   #.to_json(orient='records')
+    multiple_test_input = test_data   #.to_json(orient='records')
 
     # When
-    subject = predict(multiple_test_json)
+    subject = predict(multiple_test_input)
 
     # Then
     assert subject is not None
@@ -23,10 +23,10 @@ def test_predict():
 def test_make_single_prediction():
     # Given
     test_data = load_dataset(config.DATA_FILE)
-    single_test_json = test_data[0:1]
+    single_test_input = test_data[0:1]
 
     # When
-    subject = predict(single_test_json)
+    subject = predict(single_test_input)
 
     # Then
     assert subject is not None
