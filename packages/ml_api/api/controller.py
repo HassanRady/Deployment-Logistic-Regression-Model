@@ -29,7 +29,7 @@ def version():
 def predict():
     if request.method == 'POST':
         json_data = request.get_json()
-        # _logger.info(f'Inputs: {json_data}')
+        _logger.info(f'Inputs: {json_data}')
 
         inputs, errors = validate_inputs(json_data)
 
