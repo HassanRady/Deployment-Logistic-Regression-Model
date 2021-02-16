@@ -9,9 +9,9 @@ prepare_venv: &prepare_venv
   run:
     name: Create venv
     command: |
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install --upgrade pip
+      python3 -m venv venv
+      source venv/bin/activate
+      pip install --upgrade pip
 
 fetch_data: &fetch_data
   run:
@@ -20,6 +20,7 @@ fetch_data: &fetch_data
       source venv/bin/activate
       chmod +x ./Scripts/fetch_kaggle_dataset.sh
       ./Scripts/fetch_kaggle_dataset.sh
+
 
 jobs:
   test_regression_model:
