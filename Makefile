@@ -1,4 +1,4 @@
-NAME=udemy-ml-api
+NAME=ml-api-for-titanic
 COMMIT_ID=$(shell git rev-parse HEAD)
 
 
